@@ -1,0 +1,162 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #000000;
+    font-size: 1em;
+    padding : 2rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+
+.iotheader div{
+    display: inline-block;
+}
+.iotheader img {
+    width: 15%;
+    float: left;
+}
+
+.iotheader p {
+    font-size: 2rem;
+    float: right;
+    line-height: 3;
+    margin: 0;
+}
+
+.seperator {
+    border: 0.6px solid rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+
+.iot-break-section {
+    margin: 10px 0;
+}
+
+.iot-flrs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.iot-seat {
+    width: 30%;
+    line-height: 2.5;
+}
+
+.iot-row {
+    width: 30%;
+    margin-left: 2%;
+    line-height: 2.5;
+}
+
+.seat-seperator {
+    height: 100%;
+    border-left : 1px solid #2196F3;
+}
+
+.seat-number,.row-number {
+    display: inline;
+}
+
+.seat-number div,.row-number div{
+    border-radius: 100%;
+    padding: 6px;
+    margin-left: 10px;
+    text-align: center;
+    width: 10%;
+    display: inline-table;
+    font-weight: 800;
+}
+
+.seat-number :nth-child(2), .row-number :nth-child(2){
+    color: #43A047;
+    border: 3px solid #43A047;
+}
+
+
+.seat-number :nth-child(3), .row-number :nth-child(3) {
+    color: #1E88E5;
+    border: 3px solid #1E88E5;
+}
+
+.seat-number :nth-child(4), .row-number :nth-child(4) {
+    color: #F44336;
+    border: 3px solid #F44336;
+}
+
+.search {
+    padding:8px 15px;
+    background:rgba(50, 50, 50, 0.2);
+    border:0px solid #dbdbdb;
+}
+.button {
+    position:relative;
+    padding:6px 15px;
+    left:-8px;
+    border:2px solid #207cca;
+    background-color:#207cca;
+    color:#fafafa;
+}
+.test {
+    margin-top:10px;
+}
+
+.searchButton {
+    position:relative;
+    padding:8px 8px;
+    left:-8px;
+    border:2px solid #207cca;
+    background-color:#207cca;
+    color:#fafafa;
+    margin-left: 10px;
+    -webkit-transition: all 2s ease-out;
+    transition: all 2s ease-out;
+    font-size: 16px;
+}
+.current {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+    .search {
+        padding: 6px 10px;
+    }
+    .button {
+        padding:6px 10px;
+    }
+}

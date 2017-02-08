@@ -1,0 +1,200 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/nice-select.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    </head>
+    <body>
+        <header class="iotheader">
+                <div>
+                    <img src="./img/iotspot.png">
+                    <p> WorkSpace Dashboard</p>
+                </div>
+        </header>
+        <section class="seperator"></section>
+        <section class="iot-break-section">
+            <div class="iot-flrs">
+                <select name="location" class="wide test" >
+                    <option value="21" selected="selected">PwC Brussels</option>
+                    <option value="1">Demo iotspot</option>
+                    <option value="4">iotspot HQ</option>
+                    <option value="6">Jamfabriek</option>
+                </select>
+                <div class="iot-seat">
+                    <span class="seat-seperator">&nbsp;</span>
+                    <div class="seat-number">
+                        <img src="./img/room.png" style="width: 5%;"/>
+                        <div>3695</div>
+                        <div>36</div>
+                        <div>36</div>
+                    </div>
+                </div>
+                <div class="iot-row">
+                    <span class="seat-seperator">&nbsp;</span>
+                    <div class="row-number">
+                        <img src="./img/seat.png" style="width: 5%;"/>
+                        <div>369</div>
+                        <div>0</div>
+                        <div>36</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="seperator"></section>
+        <!--hours -->
+        <section class="iot-break-section">
+            <div class="iot-flrs">
+                <select name="history" class="wide" >
+                    <option value="21" selected="selected">History usage over meerdere dagen</option>
+                    <option value="1">History usage per dag</option>
+                </select>
+                <div class="iot-seat" style="width: 70%;">
+                    <span class="seat-seperator">&nbsp;</span>
+                    <input class="search" type="text" data-toggle="datepicker">
+                    <input class="button" type="button" value="Date From">
+                    <input class="search" type="text" data-toggle="datepicker">
+                    <input class="button" type="button" value="Date Till">
+
+                </div>
+            </div>
+        </section>
+
+        <!--hours -->
+        <section class="iot-break-section">
+            <div class="iot-flrs">
+                <div style="width: 30%">&nbsp;</div>
+                <div class="iot-seat" style="width: 70%;">
+                    <span class="seat-seperator">&nbsp;</span>
+                    <input class="search" type="text" data-toggle="datepicker">
+                    <input class="button" type="button" value="Time From">
+                    <input class="search" type="text" data-toggle="datepicker">
+                    <input class="button" type="button" value="Time Till">
+                    <input class="searchButton" type="button" value="Refresh">
+                </div>
+            </div>
+        </section>
+
+        <section class="iot-break-section">
+            <div style="width: 100%;margin-left: 1.4%;">
+                <div style="float: left;line-height: 2.7;"><label>Type werkplek</label></div>
+                <div style="float: left;">
+                    <select name="history" >
+                        <option value="21" selected="selected">-</option>
+                        <option value="1">History usage per dag</option>
+                    </select>
+                </div>
+                <br style="clear: left;" />
+            </div>
+        </section>
+        <canvas id="seats_graph" width="682" height="140" style="display: block; height: 50px; width: 341px;"></canvas>
+        <script src="./js/vendor/jquery.js"></script>
+        <script src="./js/vendor/jquery.nice-select.min.js"></script>
+        <script src="https://raw.githubusercontent.com/fengyuanchen/datepicker/master/dist/datepicker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('select').niceSelect();
+                $.fn.datepicker.setDefaults({autoPick : true, autoHide : true});
+                $('[data-toggle="datepicker"]').datepicker();
+            });
+        </script>
+        <script>
+            function drawChartSeats() {
+                var label_oc = "%Occupied";
+                var label_av = "%Available";
+                var color_oc = "rgba(255,0,0,1)";
+                var color_av = "rgba(0,255,0,1)";
+
+                var chart01Data = {
+                    labels : ['Mon 2017-01-16','Tue 2017-01-17','Wed 2017-01-18','Thu 2017-01-19','Fri 2017-01-20','Sat 2017-01-21','Sun 2017-01-22','Mon 2017-01-23','Tue 2017-01-24','Wed 2017-01-25','Thu 2017-01-26','Fri 2017-01-27','Sat 2017-01-28','Sun 2017-01-29','Mon 2017-01-30','Tue 2017-01-31','Wed 2017-02-01'],
+                    datasets : [
+                        {
+                            label : label_av,
+                            backgroundColor : color_av,
+                            fill : false,
+                            data : [98.39,99.89,100,99.92,99.02,99.55,99.2,98.28,99.95,99.89,100,99.72,98.9,98.6,94.6,91.15,85.35]
+                        }
+                    ]
+                };
+
+                var ctx = document.getElementById("seats_graph").getContext("2d");
+                var myLineChart = new Chart(ctx , {
+                    type: "line",
+                    data: chart01Data,
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    display:false
+                                },
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    max: 100,
+                                    min: 0,
+                                    stepSize: 20
+                                },
+                                stacked: false
+                            }]
+                        }
+                    }
+                });
+                //});
+            }
+
+            function drawChartRooms() {
+                var label_oc = "%Occupied";
+                var label_av = "%Available";
+                var color_oc = "rgba(255,0,0,1)";
+                var color_av = "rgba(0,255,0,1)";
+
+                var chart01Data = {
+                    labels : ['Mon 2017-01-16','Tue 2017-01-17','Wed 2017-01-18','Thu 2017-01-19','Fri 2017-01-20','Sat 2017-01-21','Sun 2017-01-22','Mon 2017-01-23','Tue 2017-01-24','Wed 2017-01-25','Thu 2017-01-26','Fri 2017-01-27','Sat 2017-01-28','Sun 2017-01-29','Mon 2017-01-30','Tue 2017-01-31','Wed 2017-02-01'],
+                    datasets : [
+                        {
+                            label : label_av,
+                            backgroundColor : color_av,
+                            data            : [72.22,75,76.69,82.62,100,100,100,92.19,57.81,100,100,100,89.81,100,83.37,100,100]
+                        }
+                    ]
+                };
+
+                var ctx = document.getElementById("rooms_graph").getContext("2d");
+                var myLineChart = new Chart(ctx , {
+                    type: "bar",
+                    data: chart01Data,
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    display:false
+                                },
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    max: 100,
+                                    min: 0,
+                                    stepSize: 10
+                                },
+                                stacked: true
+                            }]
+                        }
+                    }
+                });
+                //});
+            }
+
+            drawChartSeats();
+            drawChartRooms();
+        </script>
+    </body>
+</html>

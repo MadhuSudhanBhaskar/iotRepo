@@ -1,0 +1,127 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/nice-select.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    </head>
+    <body>
+        <header class="iotheader">
+                <div>
+                    <img src="./img/iotspot.png">
+                    <p> WorkSpace Dashboard</p>
+                </div>
+        </header>
+        <section class="seperator"></section>
+        <section class="iot-break-section">
+            <div class="iot-flrs">
+                <select name="location" class="wide test" >
+                    <option value="21" selected="selected">PwC Brussels</option>
+                    <option value="1">Demo iotspot</option>
+                    <option value="4">iotspot HQ</option>
+                    <option value="6">Jamfabriek</option>
+                </select>
+                <div class="iot-seat">
+                    <span class="seat-seperator">&nbsp;</span>
+                    <div class="seat-number">
+                        <span class="xicon icon-room"></span>
+                        <span class="round-badge green">3695</span>
+                        <span class="round-badge blue">36</span>
+                        <span class="round-badge red">36</span>
+                    </div>
+                </div>
+                <div class="iot-row">
+                    <span class="seat-seperator">&nbsp;</span>
+                    <div class="row-number">
+                        <span class="xicon icon-seat"></span>
+                        <span class="round-badge green">3695</span>
+                        <span class="round-badge blue">36</span>
+                        <span class="round-badge red">36</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="seperator"></section>
+        <!--hours -->
+        <section class="iot-break-section">
+            <div class="iot-flrs">
+                <select name="history" class="wide" >
+                    <option value="21" selected="selected">History usage over meerdere dagen</option>
+                    <option value="1">History usage per dag</option>
+                </select>
+                <div class="iot-seat" style="width: 70%;">
+                    <span class="seat-seperator">&nbsp;</span>
+                    <input class="search" type="text" data-toggle="datepicker">
+                    <input class="button" type="button" value="Date From">
+                    <input class="search" type="text" data-toggle="datepicker">
+                    <input class="button" type="button" value="Date Till">
+
+                </div>
+            </div>
+        </section>
+
+        <!--hours -->
+        <section class="iot-break-section">
+            <div class="iot-flrs">
+                <div style="width: 30%">&nbsp;</div>
+                <div class="iot-seat" style="width: 70%;">
+                    <span class="seat-seperator">&nbsp;</span>
+                    <input class="search" type="text" data-toggle="datepicker">
+                    <input class="button" type="button" value="Time From">
+                    <input class="search" type="text" data-toggle="datepicker">
+                    <input class="button" type="button" value="Time Till">
+                    <input class="searchButton" type="button" value="Refresh">
+                </div>
+            </div>
+        </section>
+
+        <section class="iot-break-section">
+            <div class="graph-type-select">
+                <select name="history" >
+                    <option value="21" selected="selected" disabled>Type werkplek -</option>
+                    <option value="1">History usage per dag</option>
+                </select>
+            </div>
+        </section> 
+        <section class="iot-break-section graph-section">
+            <div class="legend-y">
+                <div class="legend-y-icon">
+                    <span class="xicon icon-room"></span>
+                </div>
+            </div>
+            <div class="graph-area">
+                <canvas id="seats_graph" width="682" height="140" style="display: block; height: 50px; width: 341px;"></canvas>
+            </div> 
+        </section>
+        <section class="iot-break-section">
+            <div class="graph-type-select">
+                <select name="history" >
+                    <option value="21" selected="selected" disabled>Type Room -</option>
+                    <option value="1">History usage per dag</option>
+                </select>
+            </div>
+        </section> 
+        <section class="iot-break-section graph-section">
+            <div class="legend-y">
+                <div class="legend-y-icon">
+                    <span class="xicon icon-seat"></span>
+                </div>
+            </div>
+            <div class="graph-area">
+                <canvas id="rooms_graph" width="682" height="140" style="display: block; height: 50px; width: 341px;"></canvas>
+            </div> 
+        </section>
+
+        <script src="./js/vendor/jquery.js"></script>
+        <script src="./js/vendor/jquery.nice-select.min.js"></script>
+        <script src="./js/vendor/datepicker.min.js"></script>
+        <script src="./js/vendor/Chart.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

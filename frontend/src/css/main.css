@@ -1,0 +1,200 @@
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #000000;
+    font-size: 1em;
+    padding : 2rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+
+.iotheader div{
+    display: inline-block;
+}
+.iotheader img {
+    width: 15%;
+    float: left;
+}
+
+.iotheader p {
+    font-size: 2rem;
+    float: right;
+    line-height: 3;
+    margin: 0;
+}
+
+.seperator {
+    border: 0.6px solid rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+
+.iot-break-section {
+    margin: 10px 0;
+}
+
+.iot-flrs {
+    display: flex;
+}
+
+.iot-seat {
+    width: 30%;
+    line-height: 2.5;
+}
+
+.iot-row {
+    width: 30%;
+    margin-left: 2%;
+    line-height: 2.5;
+}
+
+.seat-seperator {
+    height: 100%;
+    border-left : 1px solid #2196F3;
+}
+
+.seat-number,.row-number {
+    display: inline;
+}
+
+.round-badge {
+    margin-left: 10px;
+    width: 35px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 100%;
+    text-align: center;
+    display: inline-block;
+    font-weight: 800;
+    padding: 0px 5px 0px;
+}
+
+.round-badge.green{
+    color: #43A047;
+    border: 3px solid #43A047;
+}
+.round-badge.blue{
+    color: #1E88E5;
+    border: 3px solid #1E88E5;
+}
+.round-badge.red{
+    color: #F44336;
+    border: 3px solid #F44336;
+}
+
+.search {
+    padding:8px 15px;
+    background:rgba(50, 50, 50, 0.2);
+    border:0px solid #dbdbdb;
+}
+.button {
+    position:relative;
+    padding:6px 15px;
+    left:-8px;
+    border:2px solid #207cca;
+    background-color:#207cca;
+    color:#fafafa;
+}
+.searchButton {
+    position:relative;
+    padding:8px 8px;
+    left:-8px;
+    border:2px solid #207cca;
+    background-color:#207cca;
+    color:#fafafa;
+    margin-left: 10px;
+    transition: all 2s ease-out;
+    font-size: 16px;
+}
+.current {
+    width: 100%;
+    overflow: hidden;
+}
+/* Graph Section */
+    .graph-type-select{
+        height: 2.5em;
+    }
+    .graph-section {
+        display: flex;
+        justify-content:space-between;
+        min-height: 200px;
+        position: relative;
+    }
+    .legend-y{
+        width: 5%;
+    }
+    .legend-y-icon{
+        top: 50%;
+        margin-top: -15px;
+        position: absolute;
+    }
+    .graph-area{
+        width: 95%;
+    }
+
+/* Icons Styles*/
+.xicon {
+    position: relative;
+    padding: 0.3em;
+}
+.xicon:before{
+  content:'';
+  display:inline-block; 
+  width: 2em;
+  height: 2em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.icon-room:before{margin-top: 0.4em;background-image: url('../img/room.png');}
+
+.icon-seat:before{background-image: url('../img/seat.png');}
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+    .button {
+        padding:6px 10px;
+    }
+    
+    .searchButton {
+            margin-top: 1em;
+            left: initial;
+                display: block;
+    }
+    .round-badge {
+        margin-left: 5px;
+        width: 25px;
+        height: 35px;
+        line-height: 35px;
+        padding: 0px 5px 0px;
+        font-size: 0.8em;
+    }
+    .search {
+        width: 24%;
+    }
+}
